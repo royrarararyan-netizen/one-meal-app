@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#155e53"><title>핏플랜 · 나만의 건강 루틴</title>
+<style>
+:root{--ink:#15322e;--brand:#157a6b;--mint:#ddf5ec;--bg:#f4f8f5;--card:#fff;--muted:#68807a;--orange:#f07d4f;--line:#dce9e3}*{box-sizing:border-box}body{margin:0;background:linear-gradient(150deg,#e6f7f0,#f8f7ed 60%,#e6f0ff);color:var(--ink);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Noto Sans KR",sans-serif;min-height:100vh}main{max-width:760px;margin:auto;padding:28px 18px 70px}.brand{font-weight:900;letter-spacing:-1.1px;font-size:24px;color:var(--brand)}.brand b{color:var(--orange)}header{display:flex;justify-content:space-between;align-items:center;margin-bottom:24px}.badge{background:#fff;padding:8px 12px;border-radius:999px;font-size:12px;box-shadow:0 5px 18px #1a4d4220}.hero{padding:27px;border-radius:25px;background:linear-gradient(130deg,#146c61,#249980);color:white;box-shadow:0 18px 45px #15655542;position:relative;overflow:hidden}.hero:after{content:"✦";position:absolute;right:26px;top:-19px;font-size:148px;color:#baf0dc2a}.hero h1{font-size:clamp(28px,6vw,43px);line-height:1.2;letter-spacing:-2px;margin:6px 0 10px}.hero p{color:#d9fff1;margin:0;line-height:1.55}.grid{display:grid;gap:14px;margin-top:16px}.setup,.panel{background:var(--card);border:1px solid #e7efeb;border-radius:21px;padding:20px;box-shadow:0 8px 26px #123e3310}.setup h2,.panel h2{margin:0 0 5px;font-size:19px;letter-spacing:-.8px}.hint{font-size:12px;color:var(--muted);line-height:1.55;margin:0 0 15px}.fields{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.field label{display:block;font-size:12px;font-weight:700;margin:0 0 6px}.field input,.field select{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px;background:#fbfdfc;color:var(--ink);font:inherit}button{border:0;border-radius:12px;padding:12px 15px;background:var(--brand);color:#fff;font-weight:800;font:inherit;cursor:pointer;transition:.16s}button:hover{transform:translateY(-1px);filter:brightness(1.07)}.save{margin-top:14px;width:100%}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.stat{padding:14px 11px;border-radius:17px;background:var(--mint)}.stat.orange{background:#fff0e9}.stat.blue{background:#e9f2ff}.stat b{display:block;font-size:19px;letter-spacing:-1px}.stat span{display:block;font-size:11px;color:var(--muted);margin-top:4px}.plan{display:grid;grid-template-columns:1fr 1fr;gap:12px}.item{padding:16px;border-radius:17px;background:#f8fbf9;border:1px solid #edf2ef}.item h3{font-size:15px;margin:0 0 7px}.item p{font-size:12px;color:var(--muted);line-height:1.55;margin:0}.item .icon{font-size:25px;float:right}.full{grid-column:1/-1}.check{display:flex;gap:8px;align-items:center;margin:10px 0;padding:10px 11px;background:#f8fbf9;border-radius:12px;font-size:13px}.check input{accent-color:var(--brand);width:18px;height:18px}.progress{height:11px;border-radius:99px;background:#edf1ef;overflow:hidden;margin:13px 0 7px}.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#23ad8f,#9be03b);border-radius:99px;transition:.35s}.water{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.water button{font-size:20px;padding:7px 10px;background:#e7f5f0;color:#4e8a7c}.water button.done{background:#2caa92;color:white}.small{font-size:12px;color:var(--muted);line-height:1.6}.disclaimer{font-size:11px;color:#718079;text-align:center;line-height:1.6;margin:20px 8px 0}@media(max-width:480px){main{padding:20px 14px 55px}.plan{grid-template-columns:1fr}.full{grid-column:auto}.hero{padding:23px}.stats{gap:7px}.stat{padding:12px 8px}.fields{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body><main>
+<header><div class="brand">핏<b>플랜</b></div><div class="badge">🌱 오늘도 한 걸음</div></header>
+<section class="hero"><small>내 몸에 맞춘 건강한 변화</small><h1>무리하지 않는<br>나만의 다이어트</h1><p>목표를 설정하면 오늘의 식단·운동·습관을 제안해 드려요.</p></section>
+<section class="setup grid"><h2>내 목표 설정</h2><p class="hint">개인화 추천을 위해 입력하세요. 건강 상태에 따라 전문의와 상담하세요.</p>
+<div class="fields"><div class="field"><label>현재 몸무게 (kg)</label><input id="current" type="number" min="25" max="250" value="65"></div><div class="field"><label>목표 몸무게 (kg)</label><input id="goal" type="number" min="25" max="250" value="60"></div><div class="field"><label>키 (cm)</label><input id="height" type="number" min="100" max="230" value="165"></div><div class="field"><label>평소 활동량</label><select id="activity"><option value="low">낮음 · 주로 앉아 있음</option><option value="mid" selected>보통 · 주 1~3회 운동</option><option value="high">높음 · 주 4회 이상 운동</option></select></div></div>
+<button class="save" id="save">나만의 플랜 만들기</button></section>
+<section class="panel grid" id="dashboard" hidden><h2 id="greeting">이번 주의 건강 플랜</h2><div class="stats"><div class="stat"><b id="remain">5.0kg</b><span>목표까지</span></div><div class="stat orange"><b id="weeks">10~20주</b><span>권장 기간</span></div><div class="stat blue"><b id="bmi">23.9</b><span>현재 BMI</span></div></div>
+<div class="panel" style="padding:16px;background:#f8fbf9"><b style="font-size:14px">오늘의 실천</b><div class="progress"><i id="bar"></i></div><span class="small" id="progressText">0 / 3 완료</span><label class="check"><input class="habit" type="checkbox"> 물 6~8잔 마시기</label><label class="check"><input class="habit" type="checkbox"> 20분 이상 걷기</label><label class="check"><input class="habit" type="checkbox"> 단백질 포함한 한 끼 먹기</label></div>
+<div class="plan"><article class="item"><span class="icon">🥗</span><h3>오늘의 식단</h3><p id="meal">현미밥 반 공기 + 닭가슴살 또는 두부 + 채소 두 줌. 배고프면 과일이나 그릭요거트를 더해요.</p></article><article class="item"><span class="icon">🏃</span><h3>오늘의 운동</h3><p id="workout">빠르게 걷기 25분과 스쿼트 10회 × 2세트. 통증이 있으면 강도를 낮추세요.</p></article><article class="item full"><span class="icon">💡</span><h3>지속하는 팁</h3><p id="tip">주당 0.25~0.5kg 정도의 천천한 변화가 현실적이에요. 체중은 같은 조건에서 주 1회 기록하세요.</p></article></div>
+<div class="panel" style="padding:16px;background:#f8fbf9"><b style="font-size:14px">오늘 물 마시기</b><div class="water" id="water"></div><p class="small" id="waterText">0 / 8잔</p></div>
+<button id="reset" style="background:#e6f2ee;color:#246558">기록 초기화</button></section>
+<p class="disclaimer">핏플랜은 일반적인 웰니스 정보만 제공합니다. 임신·수유 중이거나 질환, 섭식장애 이력이 있으면 의료 전문가와 먼저 상담하세요.</p>
+</main>
+<script>
+const $=s=>document.querySelector(s), data=JSON.parse(localStorage.getItem('fitplan')||'{}');
+['current','goal','height','activity'].forEach(k=>{if(data[k]!=null) $('#'+k).value=data[k]});
+function render(){
+ const cur=+$('#current').value,goal=+$('#goal').value,h=+$('#height').value, act=$('#activity').value;
+ if(!cur||!goal||!h){alert('몸무게와 키를 입력해 주세요.');return}
+ const diff=Math.abs(cur-goal), bmi=(cur/((h/100)**2)).toFixed(1), min=Math.ceil(diff/.5),max=Math.ceil(diff/.25);
+ $('#remain').textContent=(cur-goal>=0?diff.toFixed(1):'+'+diff.toFixed(1))+'kg'; $('#weeks').textContent=min+'~'+max+'주'; $('#bmi').textContent=bmi;
+ $('#greeting').textContent=cur>goal?'목표까지 '+diff.toFixed(1)+'kg, 건강하게 가볼까요?':'현재 목표에 도달했어요! 유지 루틴을 시작해요.';
+ const text=act==='low'?['채소 듬뿍 비빔밥(밥 반 공기) + 달걀 또는 두부. 간식은 견과류 한 줌으로.','식후 10분 걷기 2회 + 가벼운 전신 스트레칭 10분.']:act==='high'?['탄수화물은 운동 전후로 나누고, 매 끼니 단백질 한 손바닥 분량과 채소를 챙겨요.','근력운동 30분 + 가벼운 유산소 20분. 휴식일에는 산책과 스트레칭.']:['잡곡밥 반 공기 + 생선·닭·콩 중 하나 + 채소 두 줌. 국물과 단 음료는 줄여요.','빠르게 걷기 30분 또는 집에서 스쿼트·벽푸시업·플랭크 각 2세트.'];
+ $('#meal').textContent=text[0];$('#workout').textContent=text[1];
+ data.current=cur;data.goal=goal;data.height=h;data.activity=act;localStorage.setItem('fitplan',JSON.stringify(data));$('#dashboard').hidden=false; update();
+}
+function update(){
+ const checks=[...document.querySelectorAll('.habit')], done=checks.filter(x=>x.checked).length; $('#bar').style.width=(done/3*100)+'%';$('#progressText').textContent=done+' / 3 완료';
+ const water=+(localStorage.getItem('fitwater')||0);$('#waterText').textContent=water+' / 8잔';$('#water').innerHTML=Array.from({length:8},(_,i)=>'<button class="'+(i<water?'done':'')+'" data-n="'+(i+1)+'">💧</button>').join('');
+ document.querySelectorAll('#water button').forEach(b=>b.onclick=()=>{localStorage.setItem('fitwater',b.dataset.n);update()});
+}
+$('#save').onclick=render;document.querySelectorAll('.habit').forEach((x,i)=>{x.checked=!!data.habits?.[i];x.onchange=()=>{data.habits=[...document.querySelectorAll('.habit')].map(a=>a.checked);localStorage.setItem('fitplan',JSON.stringify(data));update()}});
+$('#reset').onclick=()=>{localStorage.removeItem('fitplan');localStorage.removeItem('fitwater');location.reload()}; if(data.current)render(); else update();
+</script></body></html>
